@@ -1,0 +1,76 @@
+const productsData = [
+    {
+        id: 1,
+        name: "Creatina Mix Frutal",
+        bid: "$25.000",
+        user: "Micronizada",
+        cardImg: "./assets/imagenes/productos/creatina mix frutal.jpg",
+    },
+    {
+        id: 2,
+        name: "Creatina Monohydrate",
+        bid: "$20.000",
+        user: "Micronizada",
+        cardImg: "./assets/imagenes/productos/creatina-monohydrate.jpeg",
+    },
+    {
+        id: 3,
+        name: "Proteina",
+        bid: "$30.000",
+        user: "Sin sabor",
+        cardImg: "./assets/imagenes/productos/proteina sin sabor.jpg",
+    },
+    {
+        id: 4,
+        name: "Proteina Frutilla",
+        bid: "$35.000",
+        user: "Sabor Frutilla",
+        cardImg: "./assets/imagenes/productos/proteina frutilla.jpg",
+    },
+    {
+        id: 5,
+        name: "Proteina Chocolate",
+        bid: "$35.000",
+        user: "Sabor Chocolate",
+        cardImg: "./assets/imagenes/productos/proteina chocolate.webp",
+    },
+    {
+        id: 6,
+        name: "Proteina Vainilla",
+        bid: "$35.000",
+        user: "Sabor Vainilla",
+        cardImg: "./assets/imagenes/productos/proteina vainilla.webp",
+    },
+    {
+        id: 7,
+        name: "Pastilla BCA",
+        bid: "$20.000",
+        user: "Suplemento",
+        cardImg: "./assets/imagenes/productos/pastillas bcaa.jpg",
+    },
+    {
+        id: 8,
+        name: "Barra de Frutilla",
+        bid: "$1.000",
+        user: "Sabor Frutilla",
+        cardImg: "./assets/imagenes/productos/barra frutilla.jpg",
+    },
+];
+
+const divideProductInParts = (size) => {
+    let productsList = [];
+    for (let i = 0; i < productsData.length; i += size) {
+        // console.log(i);
+        // console.log(i + size);
+        // console.log(productsData.slice(i, i + size));
+        productsList.push(productsData.slice(i, i + size));
+    }
+    return productsList;
+};
+
+const appState = {
+    products: divideProductInParts(6),
+    currenProductsIndex: 0,
+    productsLimit: divideProductInParts(6).length,
+    activeFilter: null,
+};

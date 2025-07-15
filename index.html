@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/mediaqueries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <!--- LOGO --->
+        <img src="./assets/imagenes/1.png" alt="Logo mio" class="logo">
+        <nav class="navbar">
+            <!--- Menu hamburguesa --->
+
+            <label for="menu-toggle" class="menu-label">
+                <img src="./assets/imagenes/menuhambur.png" alt="menu icon">
+            </label>
+            <input type="checkbox" id="menu-toggle">
+
+            <ul class="navbar-list">
+                <li><a class="navbar-link" href="#portada">Home</a></li>
+                <li><a class="navbar-link" href="#products">Productos</a></li>
+                <li><a class="navbar-link" href="#info">Info</a></li>
+                <li><a class="navbar-link" href="#pie-pagina">Contactos</a></li>
+
+
+            </ul>
+            <!-- carrito -->
+            <div class="cart-label">
+                <i class="fa-solid fa-cart-shopping cart-icon">
+                    <div class="cart-bubble">0</div>
+                </i>
+            </div> 
+
+            <div class="cart">
+                <h3>Mis Compras</h3>
+                <div class="cart-container">
+
+                </div>
+                <span class="divider"></span>
+                <div class="cart-total">
+                    <p>Total:</p>
+                    <span class="total"></span>
+                </div>
+                <button class="btn-buy">Comprar</button>
+                <button class="btn-delete">Vaciar carrito</button>
+
+                <div class="overlay"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="portada">
+            <div class="portada-info">
+                <h1>
+                    Suplementos </br>Deportivos</br>
+                </h1>
+            </div>
+            <div class="portada-img">
+                <img src="./assets/imagenes/portada-img.jpg" alt="">
+            </div>
+        </section>
+        <section id="info">
+            <h2>¿Que saber sobre los suplementos deportivos?</h2>
+            <div class="informacion-1">
+                <p class="text-p">
+                    Los suplementos deportivos pueden ser una herramienta útil para los deportistas,
+                    pero deben utilizarse de forma responsable y bajo la supervisión de un profesional.
+                    Antes de empezar a tomar cualquier suplemento,
+                    es importante informarse bien y consultar a un nutricionista deportivo.
+                </p>
+            </div>
+            <div class="informacion-1">
+                <h2>¿Qué son los suplementos deportivos?</h2>
+                <p class="text-p">
+                    Son productos que contienen nutrientes concentrados como proteínas, vitaminas, minerales,
+                    aminoácidos, entre otros. Se presentan en diversas formas: polvos, cápsulas, barras, líquidos,
+                    etc.
+                    y están diseñados para cubrir necesidades nutricionales
+                    específicas de los deportistas.
+                </p>
+            </div>
+            <div class="informacion-1">
+                <h2>¿Para que sirven?</h2>
+                <ul class="items">
+                    <li>
+                        Aumentar la masa muscular: Las proteínas y algunos
+                        aminoácidos son fundamentales para la construcción y reparación muscular.
+                    </li>
+                    <li>
+                        Mejorar la recuperación: Ayudan a reparar los tejidos
+                        dañados durante el ejercicio y a reducir el tiempo de recuperación.
+                    </li>
+                    <li>
+                        Aumentar la energía: Los carbohidratos proporcionan
+                        la energía necesaria para realizar ejercicio.
+                    </li>
+                    <li>
+                        Mejorar el rendimiento: Algunos suplementos
+                        pueden mejorar la fuerza, la resistencia y la concentración.
+                    </li>
+                </ul>
+            </div>
+            <div class="informacion-1">
+                <h2>Tipos de suplementos deportivos mas comunes</h2>
+                <ul class="items-2">
+                    <li> </br>Proteinas:</br> Suero de leche,caseina,potencia muscular a corto plazo</li>
+                    <li></br>Creatina:</br> Aumenta la fuerza y la potencia muscular a corto plazo</li>
+                    <li></br>Aminoacidos:</br> BCAA (cadena remificada de aminoacidos), glutamina, etc.</li>
+                    <li></br>Vitaminas y Minerales:</br> Completan las deficiencias nutricionales.</li>
+                    <li></br>Pre-entrenamiento:</br> Proporcionan energia y enfoque antes del ejercicio.</li>
+                    <li></br>Post-entrenamiento:</br> Ayudan a la recuperacion muscuclar.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <!-- Products -->
+    <section id="products">
+        <h2>Suplementos</h2>
+        <!-- Categorias -->
+        <div class="categories">
+            <button class="category active">💪Todos</button>
+            <button class="category" data-category="creatina">Creatina</button>
+            <button class="category" data-category="Proteina">Proteina</button>
+            <button class="category" data-category="BCAA">BCAA</button>
+            <button class="category" data-category="Barra cereales">Barras cereales</button>
+        </div>
+        <!-- Productos lista -->
+        <div class="products-container">
+            <div class="products">
+                <img src="./assets/imagenes/productos/creatina mix frutal.jpg" alt="mixfrutall">
+                <div class="product-info">
+                    <div class="product-nombre">
+                        <h3>Creatina Mix Frutal</h3>
+                    </div>
+                    <div class="product-inf">
+                        <p>Micronizada.</p>
+                        <span>$25.000</span>
+                    </div>
+                    <div class="product-botton">
+                        <button class="btn-add">Comprar</button>
+                    </div>
+
+
+                </div>
+              
+            </div>
+              <!---Productos 2 -->
+              <div class="products">
+                <img src="./assets/imagenes/productos/creatina-monohydrate.jpeg" alt="mixfrutall">
+                <div class="product-info">
+                    <div class="product-nombre">
+                        <h3>Creatina Monohydrate</h3>
+                    </div>
+                    <div class="product-inf">
+                        <p>Micronizada.</p>
+                        <span>$20.000</span>
+                    </div>
+                    <div class="product-botton">
+                        <button class="btn-add">Comprar</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Productos 3 -->
+            <div class="products">
+                <img src="./assets/imagenes/productos/proteina sin sabor.jpg" alt="mixfrutall">
+                <div class="product-info">
+                    <div class="product-nombre">
+                        <h3>Proteina</h3>
+                    </div>
+                    <div class="product-inf">
+                        <p>Sin sabor</p>
+                        <span>$30.000</span>
+                    </div>
+                    <div class="product-botton">
+                        <button class="btn-add">Comprar</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Productos 4 -->
+            <div class="products-1">
+                <img src="./assets/imagenes/productos/proteina frutilla.jpg" alt="mixfrutall">
+                <div class="product-info">
+                    <div class="product-nombre">
+                        <h3>Proteina Frutilla</h3>
+                    </div>
+                    <div class="product-inf">
+                        <p>Sabor Frutilla.</p>
+                        <span>$35.000</span>
+                    </div>
+                    <div class="product-botton">
+                        <button class="btn-add">Comprar</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Productos 5 -->
+            <div class="products-1">
+                <img src="./assets/imagenes/productos/proteina chocolate.webp" alt="mixfrutall">
+                <div class="product-info">
+                    <div class="product-nombre">
+                        <h3>Proteina Chocolate</h3>
+                    </div>
+                    <div class="product-inf">
+                        <p>Sabor chocolate.</p>
+                        <span>$35.000</span>
+                    </div>
+                    <div class="product-botton">
+                        <button class="btn-add">Comprar</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Productos 6 -->
+            <div class="products-1">
+                <img src="./assets/imagenes/productos/proteina vainilla.webp" alt="mixfrutall">
+                <div class="product-info">
+                    <div class="product-nombre">
+                        <h3>Proteina Vainilla</h3>
+                    </div>
+                    <div class="product-inf">
+                        <p>Sabor vainilla.</p>
+                        <span>$35.000</span>
+                    </div>
+                    <div class="product-botton">
+                        <button class="btn-add">Comprar</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- Productos 7 -->
+            <div class="products">
+                <img src="./assets/imagenes/productos/pastillas bcaa.jpg" alt="mixfrutall">
+                <div class="product-info">
+                    <div class="product-nombre">
+                        <h3>Pastillas BCA</h3>
+                    </div>
+                    <div class="product-inf">
+                        <p>Suplemento.</p>
+                        <span>$20.000</span>
+                    </div>
+                    <div class="product-botton">
+                        <button class="btn-add">Comprar</button>
+                    </div>
+
+
+                </div>
+
+            </div>
+      </div>
+      <button class="btn-load">Ver mas</button>
+    </section>
+
+    <!-- Footer -->
+    <footer id="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <h2>Sobre Nosotros</h2>
+                <p>Espero que les guste nuestros productos, como la app para
+                    comprarlos.
+                </p>
+                <p>Muchas Gracias.</p>
+            </div>
+            <div class="box">
+                <h2>Redes Sociales</h2>
+                <div class="red-social">
+                    <a href="https://www.facebook.com/marcelo.heinrich.549?mibextid=ZbWKwL">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="https://x.com/Braian_heinrich">
+                        <i class="bi bi-twitter-x"></i>
+
+                    </a>
+                    <a href="https://Instagram.com/braiannheinrich">
+                        <i class="bi bi-instagram"></i>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2025 <b>BF</b> - Todos los Derechos Reservados</small>
+        </div>
+    </footer>
+
+    <script src="./assets/data.js"></script>
+    <script src="./assets/index.js"></script>
+</body>
+
+</html>

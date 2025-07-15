@@ -1,0 +1,144 @@
+/*=== TABLET ===*/
+@media (max-width:992px) {
+
+    .navbar{
+        gap: 15px;
+    }
+
+    .cart-icon{
+        border: 0px solid;
+        align-self: center;
+    }
+    .navbar-list{
+        position: absolute;
+        top: 65px;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        flex-direction: column;
+        align-items: start;
+        background: linear-gradient(153deg,
+            rgba(133, 116, 84, 1) 38%,
+            rgba(51, 47, 39, 1) 59%);
+        border: 2px solid coral;
+        border-top: 0;
+        border-radius: 0px 0px 15px 15px;
+        padding: 45px 30px;
+        gap: 25px;
+        display: none; 
+    }
+
+    .navbar-list a{
+        font-size: 18px;
+    }
+
+    .menu-label{
+        display: flex;
+        cursor: pointer;
+        order: 2;
+    }
+
+    .menu-label img{
+        height: 20px;
+        width: 25px;
+    }
+
+    #menu-toggle:checked + .navbar-list{
+       display: flex;
+    }
+
+    /*== PORTADA ==*/
+
+    .portada-info{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .portada-img{
+        display: none;
+    }
+
+    .portada-info h1{
+        width: 90%;
+        max-width: 500px;
+        min-width: unset;
+    }
+
+      /*== INFORMACION ==*/
+
+    #info{
+        text-align: center;
+        width: 80%;
+       
+    }
+
+    .text-p, .items{
+        font-size: 25px;
+    }
+
+   .items-2{
+    font-size: 23px;
+    text-align: center;
+   }
+
+
+   .categories{
+    flex-wrap: wrap;
+    max-width: 390px;
+   }
+
+   .category{
+    width: 120px;
+    font-size: 19px;
+   }
+
+
+   .products-container{
+    justify-content: center;
+   }
+
+   .btn-load{
+    font-size: 20px;
+   }
+}   
+
+
+@media (max-width:576px){
+    /*== CARRITO ==*/
+    .cart{
+        left: 0;
+        width: 100%;
+        border: none;   
+    }
+
+    #info{
+        width: 90%;
+        justify-content: center;
+    }
+
+   
+}
+
+@media screen and (max-width:800px) {
+    #pie-pagina .grupo-1 {
+        width: 100%;
+        height: 350px;
+        grid-template-columns: repeat(3, 1fr);       
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+        font-size: 20px;
+
+    }
+
+    .box{
+        font-size: 20px;
+    }
+
+    #pie-pagina .grupo-2{
+        font-size: 25px;
+    }
+}    
