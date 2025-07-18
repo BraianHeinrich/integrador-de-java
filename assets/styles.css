@@ -487,3 +487,39 @@ main {
     display: none;
 }
 
+
+/* 🌈 Paleta mejorada */
+body {
+    color: #F2E6CC; /* beige claro: legible y suave sobre marrón */
+}
+  
+h2, h3, .navbar-link, .product-nombre h3 {
+    color: #FFFFFF; /* títulos en blanco puro para máximo contraste */
+}
+  
+.btn-add, .btn-load {
+    background-color: #C08552; /* terracota cálida */
+    color: #fff;
+    transition: background-color 0.3s;
+}
+.btn-add:hover, .btn-load:hover {
+   background-color: #D2691E; /* más vibrante al pasar el mouse */
+}
+
+/* Overlay para fondo al abrir carrito */
+.cart-overlay {
+    position: fixed;
+    top: 65px; left: 0;
+    width: 100%;
+    height: calc(100vh - 65px);
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1;
+  }
+  
+  .cart.open-cart .cart-overlay {
+    display: block;
+  }
+  
+  
+

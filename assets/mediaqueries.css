@@ -119,6 +119,15 @@
         justify-content: center;
     }
 
+    .btn-load {
+        display: block;
+        margin: 20px auto;
+    }
+
+    .cart {
+        width: 100%;
+    }
+
    
 }
 
@@ -141,4 +150,14 @@
     #pie-pagina .grupo-2{
         font-size: 25px;
     }
+
+    .btn-load {
+        display: block;
+        margin: 20px auto;
+      }
+      
+      .cart {
+        width: 100%;
+      }
+      
 }    

@@ -1,4 +1,4 @@
-const productsData = [
+export const productsData = [
     {
         id: 1,
         name: "Creatina Mix Frutal",
@@ -56,21 +56,3 @@ const productsData = [
         cardImg: "./assets/imagenes/productos/barra frutilla.jpg",
     },
 ];
-
-const divideProductInParts = (size) => {
-    let productsList = [];
-    for (let i = 0; i < productsData.length; i += size) {
-        // console.log(i);
-        // console.log(i + size);
-        // console.log(productsData.slice(i, i + size));
-        productsList.push(productsData.slice(i, i + size));
-    }
-    return productsList;
-};
-
-const appState = {
-    products: divideProductInParts(6),
-    currenProductsIndex: 0,
-    productsLimit: divideProductInParts(6).length,
-    activeFilter: null,
-};
