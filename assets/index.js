@@ -40,9 +40,9 @@ const renderCart = () => {
     let sum = 0;
 
     cart.forEach(item => {
-        const price = parseInt(item.bid.replace(/\D/g, "")) * item.qty;
-        sum += price;
-
+        const price = parseInt(item.bid.replace(/\D/g, ""));
+        const itemTotal = price * item.qty;
+        sum += itemTotal;
         const div = document.createElement("div");
         div.className = "cart-item";
         div.innerHTML = `
@@ -169,44 +169,47 @@ cartContainer.addEventListener("click", e => {
     updateCartBubble();
 });
 
-const form = document.getElementById("contact-form");
+const form = document.getElementById("contacto-form");
 const successMsg = document.getElementById("contact-success");
 
-const isValidEmail = email =>
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+if (form) {
+  const isValidEmail = email =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  let isValid = true;
-  successMsg.textContent = "";
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    let isValid = true;
+    successMsg.textContent = "";
 
-  // Limpiar errores previos
-  ["name", "email", "message"].forEach(id => {
-    document.getElementById(`error-${id}`).textContent = "";
+    // Limpiar errores previos
+    ["name", "email", "message"].forEach(id => {
+      const errEl = document.getElementById(`error-${id}`);
+      if (errEl) errEl.textContent = "";
+    });
+
+    const name = form.elements.name.value.trim();
+    const email = form.elements.email.value.trim();
+    const message = form.elements.message.value.trim();
+
+    if (!name) {
+      document.getElementById("error-name").textContent = "El nombre es obligatorio.";
+      isValid = false;
+    }
+    if (!email || !isValidEmail(email)) {
+      document.getElementById("error-email").textContent = "Email inválido.";
+      isValid = false;
+    }
+    if (!message) {
+      document.getElementById("error-message").textContent = "El mensaje no puede estar vacío.";
+      isValid = false;
+    }
+
+    if (isValid) {
+      form.reset();
+      successMsg.textContent = "¡Mensaje enviado correctamente!";
+    }
   });
-
-  const name = form.elements.name.value.trim();
-  const email = form.elements.email.value.trim();
-  const message = form.elements.message.value.trim();
-
-  if (!name) {
-    document.getElementById("error-name").textContent = "El nombre es obligatorio.";
-    isValid = false;
-  }
-  if (!email || !isValidEmail(email)) {
-    document.getElementById("error-email").textContent = "Email inválido.";
-    isValid = false;
-  }
-  if (!message) {
-    document.getElementById("error-message").textContent = "El mensaje no puede estar vacío.";
-    isValid = false;
-  }
-
-  if (isValid) {
-    form.reset();
-    successMsg.textContent = "¡Mensaje enviado correctamente!";
-  }
-});
+}
 
 
 
