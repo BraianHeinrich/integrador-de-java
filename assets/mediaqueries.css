@@ -95,10 +95,9 @@
     font-size: 19px;
    }
 
-
-   .products-container{
-    justify-content: center;
-   }
+   .product-card {
+    width: 45%;
+    }
 
    .btn-load{
     font-size: 20px;
@@ -126,6 +125,10 @@
 
     .cart {
         width: 100%;
+    }
+
+    .product-card {
+        width: 90%;
     }
 
    
