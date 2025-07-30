@@ -2,6 +2,7 @@ import { productsData } from "./data.js";
 
 const productsContainer = document.querySelector(".products-container");
 const showMoreBtn = document.querySelector('.btn-load');
+const btnLess = document.querySelector('.btn-less');
 const categoriesContainer = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category");
 
@@ -14,8 +15,11 @@ const btnDelete = document.querySelector(".btn-delete");
 const cartOverlay = document.querySelector('.cart-overlay');
 
 
-const form = document.getElementById("contacto-form");
-const successMsg = document.getElementById("contacto-sucess");
+
+const form = document.getElementById('contacto-form');
+const successMsg = document.getElementById("contact-success"); 
+
+
 
 const appState = {
   //products: productsData,         //arrray entero al inicio
@@ -63,7 +67,7 @@ const createProductsTemplate = ({ cardImg, name, user, bid, id }) => `
       <h3>${name}</h3>
       <p>@${user}</p>
       <span>${bid}</span>
-      <button class="btn-add" data-id="${id}" data-name"${name}" data-bid"${bid}">Comprar</button>
+      <button class="btn-add" data-id="${id}" data-name="${name}" data-bid="${bid}">Comprar</button>
      </div>
  </div>
 `;
@@ -94,7 +98,21 @@ const showMoreProducts = () => {
   appState.currenProductsIndex++;
   renderProducts(applyPagination(), false);
   updateShowMoreBtn();
+  toggleLessButton();
 };
+
+const showLessProducts = ()  => {
+  appState.currenProductsIndex = 0;
+  renderProducts(applyPagination(),true);
+  updateShowMoreBtn();
+  toggleLessButton();
+};
+
+function toggleLessButton() {
+  if (btnLess) {
+    btnLess.style.display = appState.currenProductsIndex > 0 ? 'inline-block' : 'none';
+  }
+}
 
 const changeFilterState = newFilter => {
   appState.activeFilter = newFilter;
@@ -116,14 +134,15 @@ const applyFilter = e => {
 };
 
 const init = () => {
-  // 1. Render inicial de productos y botón “Ver más”
   renderProducts(applyPagination(), true);
   updateShowMoreBtn();
+  toggleLessButton();
+
+  showMoreBtn.addEventListener("click", showMoreProducts);
+  if (btnLess) btnLess.addEventListener("click", showLessProducts);
 
   categoriesContainer.addEventListener("click", applyFilter);
-  showMoreBtn.addEventListener("click", showMoreProducts); 
 
-  //  Abrir/cerrar carrito
   cartLabel.addEventListener("click", () => {
     cartElement.classList.toggle("open-cart");
   });
@@ -131,12 +150,9 @@ const init = () => {
     cartElement.classList.remove("open-cart");
   });
 
-  //  Listener botón Comprar del carrito
   const btnBuy = cartElement.querySelector(".btn-buy");
   if (btnBuy) {
-    btnBuy.addEventListener("click", () => {
-      alert("Procesando compra...");
-    });
+    btnBuy.addEventListener("click", () => alert("Procesando compra..."));
   }
 };
 
@@ -145,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCartBubble();
 });
-
 
 
 productsContainer.addEventListener("click", e => {
@@ -175,27 +190,29 @@ btnDelete.addEventListener("click", () => {
 });
 
 
-form.addEventListener('submit', event => {
+form.addEventListener('submit', function(event){
   event.preventDefault();
   let isValid = true;
-  successMsg.textContent = "";
+  successMsg.textContent = '';
 
-  const fields = [
-    { input: form.elements.name, errorId: 'error-name', message: 'El nombre es obligatorio.' },
-    { input: form.elements.email, errorId: 'error-email', message: 'Email inválido.' },
-    { input: form.elements.message, errorId: 'error-message', message: 'El mensaje no puede estar vacío.' }
-  ];
-  fields.forEach(f => {
-    document.getElementById(f.errorId).textContent = '';
-    if (!f.input.value.trim() || (f.input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.input.value))) {
-      document.getElementById(f.errorId).textContent = f.message;
+  ['name', 'email', 'message'].forEach(field => {
+    const input = form.elements[field];
+    const err = document.getElementById(`error-${field}`);
+    err.textContent = '';
+    if (!input.value.trim() || (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value))) {
+      err.textContent = field === 'email' ? 'Email inválido.' : 'Este campo es obligatorio.';
       isValid = false;
     }
   });
 
   if (isValid) {
     form.reset();
-    successMsg.textContent = "¡Mensaje enviado correctamente!";
+    successMsg.textContent = '¡Mensaje enviado correctamente!';
+    successMsg.style.color = 'green';
+  
+    setTimeout(() => {
+      successMsg.textContent = '';
+    }, 4000);
   }
 });
 
