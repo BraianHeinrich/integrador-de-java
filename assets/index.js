@@ -103,7 +103,7 @@ const showMoreProducts = () => {
 
 const showLessProducts = ()  => {
   appState.currenProductsIndex = 0;
-  renderProducts(applyPagination(),true);
+  renderProducts(applyPagination(), true);
   updateShowMoreBtn();
   toggleLessButton();
 };

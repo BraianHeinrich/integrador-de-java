@@ -99,6 +99,25 @@ header {
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 }
 
+/* Botones dentro del carrito */
+.cart button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: var(--sexto);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+  
+.cart button:hover {
+    background-color: #1746ff; /* un tono más azul vibrante */
+    transform: translateY(-2px);
+}
+
 .cart-container {
     display: flex;
     flex-direction: column;
@@ -243,9 +262,31 @@ main {
 }
 
 #about {
-    padding: 3rem 2rem;
-    text-align: center;
-    
+    background-color: var(--cuarto);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    border-radius: 15px;
+    margin: 2rem auto;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    color: var(--sexto);
+    letter-spacing: 1px;
+}
+
+#about p {
+    font-size: 1.2rem;
+    color: #F2E6CC;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 1.5rem auto;
+}
+
+#about::before {
+    content: "🏋️‍♂️";
+    font-size: 3rem;
+    display: block;
 }
 
 #about h2 {
@@ -348,7 +389,7 @@ main {
             rgba(51, 47, 39, 1) 59%);
     border: none;
     padding: 10px 15px;
-    color: rgb(233, 240, 233);
+    color: white;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -392,6 +433,7 @@ main {
     justify-content: space-between;
     width: 100%;
     gap: 20px;
+    color: black;
 }
 
 .product-nombre,
@@ -405,6 +447,7 @@ main {
 .product-nombre h3 {
     font-size: 1rem;
     font-weight: 800;
+    color: white;
 }
 
 .product-inf p {
@@ -418,25 +461,37 @@ main {
     font-weight: 700;
 }
 
-.btn-add {
-    background-color: darkcyan;
-    border: none;
-    padding: 10px 35px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    font-size: 15px;
+.product-card .btn-add {
+    width: auto;
+    padding: 10px 25px;
+    font-size: 700;
+    
 }
 
-.btn-load {
-    background: linear-gradient(153deg, 7 rgba(133, 116, 84, 1) 38%,
-            rgba(51, 47, 39, 1) 59%);
-    border: 1px;
-    padding: 10px 35px;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
+.product-card .btn-add:hover {
+    background-color: #D2691E;
+    transform: translate(-3PX);
 }
+
+
+.btn-load,
+.btn-less {
+   background-color: var(--sexto);
+    color: white;
+    padding: 10px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-load:hover,
+.btn-less:hover {
+    background-color: #1630aa;
+}
+
+
 
 /*==== FOOTER ======*/
 
