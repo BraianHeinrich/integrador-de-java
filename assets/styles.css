@@ -25,6 +25,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    color: #F2E6CC;
+    
+}
 
 /*=== HEADER ==*/
 header {
@@ -38,6 +42,7 @@ header {
     height: 65px;
     position: fixed;
     width: 100%;
+    z-index: 10;
 
 }
 
@@ -67,8 +72,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 1px;
     border-radius: 50%;
+    background-color: red;
+    color: white;
 }
 
 
@@ -78,102 +84,7 @@ header {
     display: none;
 }
 
-/*=== Carrito ==*/
-.cart {
-    position: absolute;
-    top: 65px;
-    right: 0;
-    padding: 50px 30px;
-    background: linear-gradient(153deg,
-            rgba(133, 116, 84, 1) 38%,
-            rgba(51, 47, 39, 1) 59%);
-    border-left: 1px solid var(--background);
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    height: calc(100vh - 65px);
-    overflow-y: scroll;
-    z-index: 2;
-    min-width: 375px;
-    transform: translate(200%);
-    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
-}
-
-/* Botones dentro del carrito */
-.cart button {
-    padding: 12px 20px;
-    font-size: 1rem;
-    background-color: var(--sexto);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-    transition: background-color 0.3s, transform 0.2s;
-    width: 100%;
-}
-  
-.cart button:hover {
-    background-color: #1746ff; /* un tono más azul vibrante */
-    transform: translateY(-2px);
-}
-
-.cart-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.cart::-webkit-scrollbar {
-    display: none;
-}
-
-.cart h2 {
-    font-size: 30px;
-    font-weight: 800;
-
-    background: linear-gradient(90deg,
-            rgba(191, 3, 16, 1) 0%,
-            rgba(78, 24, 24, 1) 50%);
-    color: transparent;
-    background-clip: text;
-
-}
-
-.divider {
-    margin-top: 20px;
-    border: 0.5px solid var(--sexto);
-    width: 100%;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    width: 100%;
-}
-
-.cart-total p {
-    color: white;
-    font-weight: 700;
-}
-
-.cart-total span {
-    color: white;
-    font-weight: 400;
-    font-size: 18px;
-}
-
-.open-cart {
-    transform: translate(0%);
-    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
-}
-
-.empty-msg {
-    color: var(--text-gray);
-    font-size: 14px;
-}
-
+/* NAVBAR */
 
 .navbar,
 .navbar-list {
@@ -192,15 +103,105 @@ header {
 
 .navbar-list a {
     font-size: 14px;
-}
-
-.navbar-list .navbar-link {
     font-weight: 800;
     color: #f3f4f6;
 }
 
+/*=== Carrito ==*/
+.cart {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    padding: 50px 30px;
+    background: linear-gradient(153deg,
+            rgba(133, 116, 84, 1) 38%,
+            rgba(51, 47, 39, 1) 59%);
+    border-left: 1px solid var(--background);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+    z-index: 9;
+    min-width: 375px;
+    transform: translate(200%);
+    transition: all 0.5s ease-in-out;
+}
 
-#car-toggle:checked+.cart {
+.cart.open-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart h2 {
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(90deg,
+    rgba(191, 3, 16, 1) 0%,
+    rgba(78, 24, 24, 1) 50%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* Botones dentro del carrito */
+.cart button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: var(--sexto);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+}
+  
+.cart button:hover {
+    background-color: #1746ff; /* un tono más azul vibrante */
+    transform: translateY(-2px);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+
+.cart-total p,
+.cart-total span {
+    color: white;
+    font-weight: 700;
+}
+
+.divider {
+    margin: 20px 0;
+    border: 1px solid var(--sexto);
+}
+
+.cart::-webkit-scrollbar {
+    display: none;
+}
+
+.open-cart {
+    transform: translate(0%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.empty-msg {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+car-toggle:checked+.cart {
     display: flex;
 
 }
@@ -468,10 +469,10 @@ main {
     
 }
 
-.product-card .btn-add:hover {
-    background-color: #D2691E;
+.product-card  {
     transform: translate(-3PX);
 }
+
 
 
 .btn-load,
@@ -487,8 +488,28 @@ main {
 }
 
 .btn-load:hover,
-.btn-less:hover {
+.btn-less:hover,
+.btn-add:hover {
     background-color: #1630aa;
+}
+
+.btn-buy,
+.btn-delete {
+    background-color: #C08552;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.btn-buy:hover,
+.btn-delete:hover {
+    transform: scale(1.05);
+    background-color: #d2691e;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -532,22 +553,16 @@ main {
     color: white;
     margin-right: 10px;
     text-align: center;
-}
-
-#pie-pagina .grupo-1 .red-social i {
     cursor: pointer;
 }
 
 #pie-pagina .grupo-2 {
     background-color: #0a1a2a;
+    font-size: 15px;
     padding: 15px 10px;
     text-align: center;
     color: #fff;
     gap: 10px;
-}
-
-#pie-pagina .grupo-2 {
-    font-size: 15px;
 }
 
 .hidden {
@@ -555,47 +570,11 @@ main {
 }
 
 
-/* 🌈 Paleta mejorada */
-body {
-    color: #F2E6CC;
-    /* beige claro: legible y suave sobre marrón */
-}
 
-h2,
-h3,
-.navbar-link,
-.product-nombre h3 {
-    color: #FFFFFF;
-    /* títulos en blanco puro para máximo contraste */
-}
 
-.btn-add,
-.btn-load {
-    background-color: #C08552;
-    /* terracota cálida */
-    color: #fff;
-    transition: background-color 0.3s;
-}
 
-.btn-add:hover,
-.btn-load:hover {
-    background-color: #D2691E;
-    /* más vibrante al pasar el mouse */
-}
 
-/* Overlay para fondo al abrir carrito */
-.cart-overlay {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 65px);
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    z-index: 1;
-}
 
-.cart.open-cart .cart-overlay {
-    display: block;
-}
+
+
 

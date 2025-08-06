@@ -65,7 +65,7 @@ const createProductsTemplate = ({ cardImg, name, user, bid, id }) => `
    <img src="${cardImg}" alt="${name}" />
    <div class="product-info">
       <h3>${name}</h3>
-      <p>@${user}</p>
+      <p>${user}</p>
       <span>${bid}</span>
       <button class="btn-add" data-id="${id}" data-name="${name}" data-bid="${bid}">Comprar</button>
      </div>

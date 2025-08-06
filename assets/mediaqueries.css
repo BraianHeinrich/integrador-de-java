@@ -71,13 +71,13 @@
 
     #info{
         text-align: center;
-        width: 80%;
+        width: 90%;
        
     }
 
     .text-p, 
     .items{
-        font-size: 25px;
+        font-size: 18px;
     }
 
    .items-2{
@@ -88,7 +88,7 @@
 
    .categories{
     flex-wrap: wrap;
-    max-width: 390px;
+    max-width: 310px;
    }
 
    .category{
@@ -97,11 +97,17 @@
    }
 
    .product-card {
-    width: 45%;
+    width: 25%;
+    margin: 0 auto;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: auto;
     }
 
    .btn-load{
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     margin: 20px auto;
    }
@@ -109,6 +115,18 @@
    .cart {
     width: 100%;
    }
+
+   .box {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+   }
+
+   .box red-social {
+    font-size: 10px;
+   }
+
+   
 }   
 
 @media (max-width: 800px) {
@@ -129,45 +147,114 @@
     #pie-pagina .grupo-2 {
         font-size: 25px;
     }
+
+    .product-card {
+        width: 48%;
+        margin: 0 auto;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 
 @media (max-width:576px){
     /*== CARRITO ==*/
-    .cart{
+    .product-card{
+        width: 100%;
+        padding: 15px;
+        font-size: 14px;  
+    }
+
+    .portada-info{
+        font-size: 18px;
+    }
+
+    .portada-info p {
+        font-size: 16px;
+    }
+
+
+    #about {
+        width: 95%;
+        padding: 30px 10px;
+    }
+    #about h2 {
+        text-align: center;
+    }
+    #about p {
+        font-size: 16px;
+    }
+
+
+    .btn-add {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    header {
+        padding: 0 15px;
+        height: 55px;
+    }
+
+    .navbar-list a {
+        font-size: 16px;
+    }
+
+    .product-card {
+        width: 35%;
+        padding: 30px 20px;
+    }
+
+    .cart {
+        padding: 30px 20px;
         left: 0;
         width: 100%;
         border: none;   
     }
 
-    #info{
-        width: 90%;
-        justify-content: center;
+    .cart h2 {
+        font-size: 24px;
     }
 
-    .product-card {
-        width: 90%;
+    .cart button {
+        font-size: 14px;
+        padding: 10px;
     }
 
-}
-
-@media (max-width: 400px) {
-    .portada-info h1 {
-        font-size: 28px;
-    }
-
-    .category {
-        width: 100%;
-        font-size: 17px;
-    }
-
-    .product-card {
-        width: 100%;
+    .btn-load {
+        font-size: 15px;
     }
 
     .text-p,
-    .items {
-        font-size: 20px;
+    .items,
+    .items-2 {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    #info {
+        width: 95%;
+        padding: 30px 10px;
+    }
+
+    .box .red-social, .box p {
+        font-size: 18px;
+    }
+   
+    #pie-pagina .grupo-1 {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 25px;
+    }
+
+    #pie-pagina .grupo-2 {
+        font-size: 16px;
+        padding: 10px;
     }
 }
+
+
 
