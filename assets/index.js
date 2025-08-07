@@ -232,6 +232,26 @@ form.addEventListener('submit', function(event){
   }
 });
 
+/*ANIMACION */
+const animatedSections = document.querySelectorAll('.animate-in');
+
+const animateOnScroll = () => {
+  animatedSections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight - 100; // CORREGIDO
+
+    if (sectionTop < triggerPoint) {
+      section.classList.add('visible');
+    }
+  });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
+
 
 
 
