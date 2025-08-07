@@ -128,6 +128,30 @@ header {
     transition: all 0.5s ease-in-out;
 }
 
+.cart-product {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff10;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cart-product img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    color: white;
+}
+
 .cart.open-cart {
     display: flex;
     flex-direction: column;

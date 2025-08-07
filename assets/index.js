@@ -50,8 +50,15 @@ const renderCart = () => {
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
-      <p>${item.name} x${item.qty} - $${itemTotal.toLocaleString()}</p>
-      <button class="remove-item" data-id="${item.id}">X</button>
+     <div class="cart-product">
+       <img src="${item.cardImg}" alt="${item.name}" />
+       <div class="cart-product-info">
+       <h4>${item.name}</h4>
+       <p>Cantidad: ${item.qty}</p>
+       <p>Precio: $${itemTotal.toLocaleString()}</p>
+     </div>
+     <button class="remove-item" data-id="${item.id}">X</button>
+     </div>
     `;
     cartContainer.appendChild(div);
   });
@@ -168,7 +175,16 @@ productsContainer.addEventListener("click", e => {
   const { id, name, bid } = e.target.dataset;
   const existing = cart.find(p => p.id === id);
   if (existing) existing.qty++;
-  else cart.push({ id, name, bid, qty: 1 });
+  else {
+    const product = productsData.find(p => p.id == id);
+    cart.push({
+      id,
+      name,
+      bid,
+      qty: 1,
+      cardImg: product.cardImg
+    });
+  }
   savecart();
   renderCart();
   updateCartBubble();
